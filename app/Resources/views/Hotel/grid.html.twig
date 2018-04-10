@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <a class="btn btn-success" href="/hotel/add">Create Hotel</a>
+        <a class="btn btn-info back_home" href="/">Back</a>
+        <div class="table">
+            {{ grid(gridHotel) }}
+        </div>
+    </div>
+{% endblock %}

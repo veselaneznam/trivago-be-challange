@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/jquery-ui.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/jquery-ui.structure.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/jquery-ui.theme.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/grid.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/bootstrap/css/bootstrap.min.css') }}"/>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        {% block body %}
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="alert alert-info">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            <div class="btn-group btn-group-justified">
+                <a href="/criteria" class="btn btn-primary">See Criteria</a>
+                <a href="/positive" class="btn btn-primary">See Positive</a>
+                <a href="/negative" class="btn btn-primary">See Negative</a>
+                <a href="/hotel" class="btn btn-primary">See Hotels</a>
+                <a href="/reviews/add" class="btn btn-primary">Import Reviews</a>
+            </div>
+            <br/>
+        {% endblock %}
+    </div>
+</div>
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/main.js') }}"></script>
+    <script src="{{ asset('bundles/app/bootstrap/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h3>{{ title }}</h3>
+    {% if helptext %}
+        <p>{{ helptext }}</p>
+    {% endif %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.positive, 'Positive', {'label_attr': {'class': 'control-label col-xs-2'}}) }}
+        {{ form_widget(form.positive, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="reset" class="btn btn-default back_positive">Back</button>
+
+    {{ form_end(form) }}
+{% endblock %}

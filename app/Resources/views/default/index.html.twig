@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <a href="/calculate-score" class="btn btn-success">RUN</a>
+        {{ grid(grid) }}
+    </div>
+{% endblock %}
